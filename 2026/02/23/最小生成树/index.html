@@ -117,12 +117,12 @@
       </div>
       <div id="imgs" class="pjax">
         <ul>
-          <li class="item" data-background-image="https://s41.ax1x.com/2026/02/26/pZxLkTO.png"></li>
+          <li class="item" data-background-image="https://s41.ax1x.com/2026/02/26/pZxLF0K.png"></li>
+          <li class="item" data-background-image="https://s41.ax1x.com/2026/02/25/pZxMmYF.png"></li>
+          <li class="item" data-background-image="https://s41.ax1x.com/2026/02/25/pZxMVoT.png"></li>
+          <li class="item" data-background-image="https://s41.ax1x.com/2026/02/26/pZxL961.png"></li>
+          <li class="item" data-background-image="https://s41.ax1x.com/2026/02/26/pZxLCOx.png"></li>
           <li class="item" data-background-image="https://s41.ax1x.com/2026/02/25/pZxMKSJ.png"></li>
-          <li class="item" data-background-image="https://s41.ax1x.com/2026/02/25/pZxMeFU.png"></li>
-          <li class="item" data-background-image="https://s41.ax1x.com/2026/02/25/pZxMnW4.png"></li>
-          <li class="item" data-background-image="https://s41.ax1x.com/2026/02/25/pZxMMl9.png"></li>
-          <li class="item" data-background-image="https://s41.ax1x.com/2026/02/25/pZxMAe0.png"></li>
         </ul>
       </div>
     </header>
@@ -171,34 +171,25 @@
   <div class="body md" itemprop="articleBody">
     
 
-    <div class="note info">
-<p><strong>什么是最小生成树 (MST)？</strong><br />
-想象你要给好几个村庄通电，村庄之间连电线的费用不同。你的目标是：用<strong>最少的总费用</strong>把所有村庄连通，且不形成回路。这个 “最省钱的连接方案” 就是最小生成树。</p>
-</div>
-<hr />
-<h2 id="1-kruskal-算法加边法-贪心-并查集"><a class="anchor" href="#1-kruskal-算法加边法-贪心-并查集">#</a> 1. Kruskal 算法：加边法 (贪心 + 并查集)</h2>
-<p>Kruskal 的思想非常直观：<strong>总是找最短的那条边</strong>。</p>
-<h3 id="核心步骤"><a class="anchor" href="#核心步骤">#</a> 核心步骤：</h3>
-<ol>
+    <p>:::info<br><strong>什么是最小生成树 (MST)？</strong><br>想象你要给好几个村庄通电，村庄之间连电线的费用不同。你的目标是：用<strong>最少的总费用</strong>把所有村庄连通，且不形成回路。这个“最省钱的连接方案”就是最小生成树。<br>:::</p>
+<hr>
+<h2 id="1-Kruskal-算法：加边法-贪心-并查集"><a href="#1-Kruskal-算法：加边法-贪心-并查集" class="headerlink" title="1. Kruskal 算法：加边法 (贪心 + 并查集)"></a>1. Kruskal 算法：加边法 (贪心 + 并查集)</h2><p>Kruskal 的思想非常直观：<strong>总是找最短的那条边</strong>。</p>
+<h3 id="核心步骤："><a href="#核心步骤：" class="headerlink" title="核心步骤："></a>核心步骤：</h3><ol>
 <li>把图中所有的边按权值（长度）<strong>从小到大排序</strong>。</li>
 <li>依次取出边，如果这条边的两个端点还没连通，就选它；如果已经连通了，就丢弃（防止形成环）。</li>
-<li>直到选够了 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>n</mi><mo>−</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">n-1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.66666em;vertical-align:-0.08333em;"></span><span class="mord mathnormal">n</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">1</span></span></span></span> 条边。</li>
+<li>直到选够了 $n-1$ 条边。</li>
 </ol>
-<h3 id="c-代码实现"><a class="anchor" href="#c-代码实现">#</a> C++ 代码实现：</h3>
-<p><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;vector&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;algorithm&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 定义边的结构体</span></span><br><span class="line"><span class="keyword">struct</span> <span class="title class_">Edge</span> &#123;</span><br><span class="line">    <span class="type">int</span> u, v, w;</span><br><span class="line">    <span class="type">bool</span> <span class="keyword">operator</span>&lt;(<span class="type">const</span> Edge&amp; other) <span class="type">const</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> w &lt; other.w; <span class="comment">// 按权值升序排序</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="type">int</span> parent[<span class="number">1005</span>];</span><br><span class="line"></span><br><span class="line"><span class="comment">// 并查集查找根节点</span></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">find</span><span class="params">(<span class="type">int</span> i)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (parent[i] == i) <span class="keyword">return</span> i;</span><br><span class="line">    <span class="keyword">return</span> parent[i] = <span class="built_in">find</span>(parent[i]);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="type">int</span> n, m; <span class="comment">// n个点，m条边</span></span><br><span class="line">    cin &gt;&gt; n &gt;&gt; m;</span><br><span class="line">    <span class="function">vector&lt;Edge&gt; <span class="title">edges</span><span class="params">(m)</span></span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; m; i++) cin &gt;&gt; edges[i].u &gt;&gt; edges[i].v &gt;&gt; edges[i].w;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 1. 排序</span></span><br><span class="line">    <span class="built_in">sort</span>(edges.<span class="built_in">begin</span>(), edges.<span class="built_in">end</span>());</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 2. 初始化并查集</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">1</span>; i &lt;= n; i++) parent[i] = i;</span><br><span class="line"></span><br><span class="line">    <span class="type">int</span> mst_weight = <span class="number">0</span>, count = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">auto</span>&amp; edge : edges) &#123;</span><br><span class="line">        <span class="type">int</span> rootU = <span class="built_in">find</span>(edge.u);</span><br><span class="line">        <span class="type">int</span> rootV = <span class="built_in">find</span>(edge.v);</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 3. 如果不在一个集合，合并它们</span></span><br><span class="line">        <span class="keyword">if</span> (rootU != rootV) &#123;</span><br><span class="line">            parent[rootU] = rootV;</span><br><span class="line">            mst_weight += edge.w;</span><br><span class="line">            count++;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (count == n - <span class="number">1</span>) cout &lt;&lt; <span class="string">&quot;最小生成树权重: &quot;</span> &lt;&lt; mst_weight &lt;&lt; endl;</span><br><span class="line">    <span class="keyword">else</span> cout &lt;&lt; <span class="string">&quot;图不连通&quot;</span> &lt;&lt; endl;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure></p>
-<hr />
-<h2 id="2-prim-算法加点法-切分定理"><a class="anchor" href="#2-prim-算法加点法-切分定理">#</a> 2. Prim 算法：加点法 (切分定理)</h2>
-<p>Prim 的思想是：<strong>从一个点出发，慢慢向外扩张</strong>。</p>
-<h3 id="核心步骤-2"><a class="anchor" href="#核心步骤-2">#</a> 核心步骤：</h3>
-<ol>
-<li>随意选一个起点加入 “已连接集合”。</li>
-<li>寻找一条最短的边，这条边的一头在 “已连接集合” 里，另一头在 “未连接集合” 里。</li>
-<li>把这个新点拉进来，重复步骤 2，直到所有点都在集合里。</li>
+<h3 id="C-代码实现："><a href="#C-代码实现：" class="headerlink" title="C++ 代码实现："></a>C++ 代码实现：</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;vector&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;algorithm&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 定义边的结构体</span></span><br><span class="line"><span class="keyword">struct</span> <span class="title class_">Edge</span> &#123;</span><br><span class="line">    <span class="type">int</span> u, v, w;</span><br><span class="line">    <span class="type">bool</span> <span class="keyword">operator</span>&lt;(<span class="type">const</span> Edge&amp; other) <span class="type">const</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> w &lt; other.w; <span class="comment">// 按权值升序排序</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="type">int</span> parent[<span class="number">1005</span>];</span><br><span class="line"></span><br><span class="line"><span class="comment">// 并查集查找根节点</span></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">find</span><span class="params">(<span class="type">int</span> i)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (parent[i] == i) <span class="keyword">return</span> i;</span><br><span class="line">    <span class="keyword">return</span> parent[i] = <span class="built_in">find</span>(parent[i]);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="type">int</span> n, m; <span class="comment">// n个点，m条边</span></span><br><span class="line">    cin &gt;&gt; n &gt;&gt; m;</span><br><span class="line">    <span class="function">vector&lt;Edge&gt; <span class="title">edges</span><span class="params">(m)</span></span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; m; i++) cin &gt;&gt; edges[i].u &gt;&gt; edges[i].v &gt;&gt; edges[i].w;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 1. 排序</span></span><br><span class="line">    <span class="built_in">sort</span>(edges.<span class="built_in">begin</span>(), edges.<span class="built_in">end</span>());</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 2. 初始化并查集</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">1</span>; i &lt;= n; i++) parent[i] = i;</span><br><span class="line"></span><br><span class="line">    <span class="type">int</span> mst_weight = <span class="number">0</span>, count = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">auto</span>&amp; edge : edges) &#123;</span><br><span class="line">        <span class="type">int</span> rootU = <span class="built_in">find</span>(edge.u);</span><br><span class="line">        <span class="type">int</span> rootV = <span class="built_in">find</span>(edge.v);</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 3. 如果不在一个集合，合并它们</span></span><br><span class="line">        <span class="keyword">if</span> (rootU != rootV) &#123;</span><br><span class="line">            parent[rootU] = rootV;</span><br><span class="line">            mst_weight += edge.w;</span><br><span class="line">            count++;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (count == n - <span class="number">1</span>) cout &lt;&lt; <span class="string">&quot;最小生成树权重: &quot;</span> &lt;&lt; mst_weight &lt;&lt; endl;</span><br><span class="line">    <span class="keyword">else</span> cout &lt;&lt; <span class="string">&quot;图不连通&quot;</span> &lt;&lt; endl;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<hr>
+<h2 id="2-Prim-算法：加点法-切分定理"><a href="#2-Prim-算法：加点法-切分定理" class="headerlink" title="2. Prim 算法：加点法 (切分定理)"></a>2. Prim 算法：加点法 (切分定理)</h2><p>Prim 的思想是：<strong>从一个点出发，慢慢向外扩张</strong>。</p>
+<h3 id="核心步骤：-1"><a href="#核心步骤：-1" class="headerlink" title="核心步骤："></a>核心步骤：</h3><ol>
+<li>随意选一个起点加入“已连接集合”。</li>
+<li>寻找一条最短的边，这条边的一头在“已连接集合”里，另一头在“未连接集合”里。</li>
+<li>把这个新点拉进来，重复步骤2，直到所有点都在集合里。</li>
 </ol>
-<h3 id="c-代码实现-2"><a class="anchor" href="#c-代码实现-2">#</a> C++ 代码实现：</h3>
-<p><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;vector&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;queue&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="type">const</span> <span class="type">int</span> INF = <span class="number">1e9</span>;</span><br><span class="line"><span class="keyword">typedef</span> pair&lt;<span class="type">int</span>, <span class="type">int</span>&gt; PII; <span class="comment">// &#123;权值, 节点编号&#125;</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="type">int</span> n, m;</span><br><span class="line">    cin &gt;&gt; n &gt;&gt; m;</span><br><span class="line">    vector&lt;vector&lt;PII&gt;&gt; <span class="built_in">adj</span>(n + <span class="number">1</span>);</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; m; i++) &#123;</span><br><span class="line">        <span class="type">int</span> u, v, w;</span><br><span class="line">        cin &gt;&gt; u &gt;&gt; v &gt;&gt; w;</span><br><span class="line">        adj[u].<span class="built_in">push_back</span>(&#123;w, v&#125;);</span><br><span class="line">        adj[v].<span class="built_in">push_back</span>(&#123;w, u&#125;);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    priority_queue&lt;PII, vector&lt;PII&gt;, greater&lt;PII&gt;&gt; pq;</span><br><span class="line">    <span class="function">vector&lt;<span class="type">int</span>&gt; <span class="title">dist</span><span class="params">(n + <span class="number">1</span>, INF)</span></span>; <span class="comment">// 到达集合的最短距离</span></span><br><span class="line">    <span class="function">vector&lt;<span class="type">bool</span>&gt; <span class="title">visited</span><span class="params">(n + <span class="number">1</span>, <span class="literal">false</span>)</span></span>;</span><br><span class="line"></span><br><span class="line">    <span class="type">int</span> mst_weight = <span class="number">0</span>;</span><br><span class="line">    dist[<span class="number">1</span>] = <span class="number">0</span>;</span><br><span class="line">    pq.<span class="built_in">push</span>(&#123;<span class="number">0</span>, <span class="number">1</span>&#125;); <span class="comment">// 从1号点开始</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">while</span> (!pq.<span class="built_in">empty</span>()) &#123;</span><br><span class="line">        <span class="keyword">auto</span> [d, u] = pq.<span class="built_in">top</span>();</span><br><span class="line">        pq.<span class="built_in">pop</span>();</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (visited[u]) <span class="keyword">continue</span>;</span><br><span class="line">        visited[u] = <span class="literal">true</span>;</span><br><span class="line">        mst_weight += d;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">auto</span>&amp; edge : adj[u]) &#123;</span><br><span class="line">            <span class="type">int</span> w = edge.first;</span><br><span class="line">            <span class="type">int</span> v = edge.second;</span><br><span class="line">            <span class="keyword">if</span> (!visited[v] &amp;&amp; w &lt; dist[v]) &#123;</span><br><span class="line">                dist[v] = w;</span><br><span class="line">                pq.<span class="built_in">push</span>(&#123;dist[v], v&#125;);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    cout &lt;&lt; <span class="string">&quot;最小生成树权重: &quot;</span> &lt;&lt; mst_weight &lt;&lt; endl;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure></p>
-<hr />
-<h2 id="总结我该选哪一个"><a class="anchor" href="#总结我该选哪一个">#</a> 💡 总结：我该选哪一个？</h2>
+<h3 id="C-代码实现：-1"><a href="#C-代码实现：-1" class="headerlink" title="C++ 代码实现："></a>C++ 代码实现：</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;vector&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;queue&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="type">const</span> <span class="type">int</span> INF = <span class="number">1e9</span>;</span><br><span class="line"><span class="keyword">typedef</span> pair&lt;<span class="type">int</span>, <span class="type">int</span>&gt; PII; <span class="comment">// &#123;权值, 节点编号&#125;</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="type">int</span> n, m;</span><br><span class="line">    cin &gt;&gt; n &gt;&gt; m;</span><br><span class="line">    vector&lt;vector&lt;PII&gt;&gt; <span class="built_in">adj</span>(n + <span class="number">1</span>);</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; m; i++) &#123;</span><br><span class="line">        <span class="type">int</span> u, v, w;</span><br><span class="line">        cin &gt;&gt; u &gt;&gt; v &gt;&gt; w;</span><br><span class="line">        adj[u].<span class="built_in">push_back</span>(&#123;w, v&#125;);</span><br><span class="line">        adj[v].<span class="built_in">push_back</span>(&#123;w, u&#125;);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    priority_queue&lt;PII, vector&lt;PII&gt;, greater&lt;PII&gt;&gt; pq;</span><br><span class="line">    <span class="function">vector&lt;<span class="type">int</span>&gt; <span class="title">dist</span><span class="params">(n + <span class="number">1</span>, INF)</span></span>; <span class="comment">// 到达集合的最短距离</span></span><br><span class="line">    <span class="function">vector&lt;<span class="type">bool</span>&gt; <span class="title">visited</span><span class="params">(n + <span class="number">1</span>, <span class="literal">false</span>)</span></span>;</span><br><span class="line"></span><br><span class="line">    <span class="type">int</span> mst_weight = <span class="number">0</span>;</span><br><span class="line">    dist[<span class="number">1</span>] = <span class="number">0</span>;</span><br><span class="line">    pq.<span class="built_in">push</span>(&#123;<span class="number">0</span>, <span class="number">1</span>&#125;); <span class="comment">// 从1号点开始</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">while</span> (!pq.<span class="built_in">empty</span>()) &#123;</span><br><span class="line">        <span class="keyword">auto</span> [d, u] = pq.<span class="built_in">top</span>();</span><br><span class="line">        pq.<span class="built_in">pop</span>();</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (visited[u]) <span class="keyword">continue</span>;</span><br><span class="line">        visited[u] = <span class="literal">true</span>;</span><br><span class="line">        mst_weight += d;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">auto</span>&amp; edge : adj[u]) &#123;</span><br><span class="line">            <span class="type">int</span> w = edge.first;</span><br><span class="line">            <span class="type">int</span> v = edge.second;</span><br><span class="line">            <span class="keyword">if</span> (!visited[v] &amp;&amp; w &lt; dist[v]) &#123;</span><br><span class="line">                dist[v] = w;</span><br><span class="line">                pq.<span class="built_in">push</span>(&#123;dist[v], v&#125;);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    cout &lt;&lt; <span class="string">&quot;最小生成树权重: &quot;</span> &lt;&lt; mst_weight &lt;&lt; endl;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<hr>
+<h2 id="💡-总结：我该选哪一个？"><a href="#💡-总结：我该选哪一个？" class="headerlink" title="💡 总结：我该选哪一个？"></a>💡 总结：我该选哪一个？</h2><div class="table-container">
 <table>
 <thead>
 <tr>
@@ -219,10 +210,10 @@
 <td><strong>Prim</strong></td>
 <td>找最近的点</td>
 <td><strong>稠密图</strong>（边非常多的情况）</td>
-<td></td>
 </tr>
 </tbody>
 </table>
+</div>
 <blockquote>
 <p><strong>面试小贴士：</strong> &gt; 记住，Kruskal 依赖于<strong>排序和并查集</strong>，而 Prim 依赖于<strong>优先队列（堆）</strong>。如果你是初学者，建议先熟练掌握 Kruskal，它的逻辑更符合直觉！</p>
 </blockquote>
@@ -297,7 +288,7 @@
     <div class="item left">
       
 
-  <a href="/2026/02/22/MyFirstPost/" itemprop="url" rel="prev" data-background-image="https:&#x2F;&#x2F;s41.ax1x.com&#x2F;2026&#x2F;02&#x2F;28&#x2F;peSKE24.jpg" title="终于成功了">
+  <a href="/2026/02/22/MyFirstPost/" itemprop="url" rel="prev" data-background-image="https:&#x2F;&#x2F;s41.ax1x.com&#x2F;2026&#x2F;02&#x2F;26&#x2F;pZxLF0K.png" title="终于成功了">
   <span class="type">Previous Post</span>
   <span class="category"><i class="ic i-flag"></i> </span>
   <h3>终于成功了</h3>
@@ -307,7 +298,7 @@
     <div class="item right">
       
 
-  <a href="/2026/02/24/%E5%AD%99%E6%82%9F%E7%A9%BA%E6%95%91%E5%B8%88%E5%82%85/" itemprop="url" rel="next" data-background-image="https:&#x2F;&#x2F;s41.ax1x.com&#x2F;2026&#x2F;02&#x2F;28&#x2F;peSKE24.jpg" title="孙悟空救师傅">
+  <a href="/2026/02/24/%E5%AD%99%E6%82%9F%E7%A9%BA%E6%95%91%E5%B8%88%E5%82%85/" itemprop="url" rel="next" data-background-image="https:&#x2F;&#x2F;s41.ax1x.com&#x2F;2026&#x2F;02&#x2F;28&#x2F;peSKVxJ.jpg" title="孙悟空救师傅">
   <span class="type">Next Post</span>
   <span class="category"><i class="ic i-flag"></i> 个题</span>
   <h3>孙悟空救师傅</h3>
@@ -329,7 +320,7 @@
   <div class="panels">
     <div class="inner">
       <div class="contents panel pjax" data-title="Contents">
-          <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-kruskal-%E7%AE%97%E6%B3%95%E5%8A%A0%E8%BE%B9%E6%B3%95-%E8%B4%AA%E5%BF%83-%E5%B9%B6%E6%9F%A5%E9%9B%86"><span class="toc-number">1.</span> <span class="toc-text"> 1. Kruskal 算法：加边法 (贪心 + 并查集)</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%A0%B8%E5%BF%83%E6%AD%A5%E9%AA%A4"><span class="toc-number">1.1.</span> <span class="toc-text"> 核心步骤：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#c-%E4%BB%A3%E7%A0%81%E5%AE%9E%E7%8E%B0"><span class="toc-number">1.2.</span> <span class="toc-text"> C++ 代码实现：</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-prim-%E7%AE%97%E6%B3%95%E5%8A%A0%E7%82%B9%E6%B3%95-%E5%88%87%E5%88%86%E5%AE%9A%E7%90%86"><span class="toc-number">2.</span> <span class="toc-text"> 2. Prim 算法：加点法 (切分定理)</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%A0%B8%E5%BF%83%E6%AD%A5%E9%AA%A4-2"><span class="toc-number">2.1.</span> <span class="toc-text"> 核心步骤：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#c-%E4%BB%A3%E7%A0%81%E5%AE%9E%E7%8E%B0-2"><span class="toc-number">2.2.</span> <span class="toc-text"> C++ 代码实现：</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%80%BB%E7%BB%93%E6%88%91%E8%AF%A5%E9%80%89%E5%93%AA%E4%B8%80%E4%B8%AA"><span class="toc-number">3.</span> <span class="toc-text"> 💡 总结：我该选哪一个？</span></a></li></ol>
+          <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-Kruskal-%E7%AE%97%E6%B3%95%EF%BC%9A%E5%8A%A0%E8%BE%B9%E6%B3%95-%E8%B4%AA%E5%BF%83-%E5%B9%B6%E6%9F%A5%E9%9B%86"><span class="toc-number">1.</span> <span class="toc-text">1. Kruskal 算法：加边法 (贪心 + 并查集)</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%A0%B8%E5%BF%83%E6%AD%A5%E9%AA%A4%EF%BC%9A"><span class="toc-number">1.1.</span> <span class="toc-text">核心步骤：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#C-%E4%BB%A3%E7%A0%81%E5%AE%9E%E7%8E%B0%EF%BC%9A"><span class="toc-number">1.2.</span> <span class="toc-text">C++ 代码实现：</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-Prim-%E7%AE%97%E6%B3%95%EF%BC%9A%E5%8A%A0%E7%82%B9%E6%B3%95-%E5%88%87%E5%88%86%E5%AE%9A%E7%90%86"><span class="toc-number">2.</span> <span class="toc-text">2. Prim 算法：加点法 (切分定理)</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%A0%B8%E5%BF%83%E6%AD%A5%E9%AA%A4%EF%BC%9A-1"><span class="toc-number">2.1.</span> <span class="toc-text">核心步骤：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#C-%E4%BB%A3%E7%A0%81%E5%AE%9E%E7%8E%B0%EF%BC%9A-1"><span class="toc-number">2.2.</span> <span class="toc-text">C++ 代码实现：</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%F0%9F%92%A1-%E6%80%BB%E7%BB%93%EF%BC%9A%E6%88%91%E8%AF%A5%E9%80%89%E5%93%AA%E4%B8%80%E4%B8%AA%EF%BC%9F"><span class="toc-number">3.</span> <span class="toc-text">💡 总结：我该选哪一个？</span></a></li></ol>
       </div>
       <div class="related panel pjax" data-title="Related">
         <ul>
@@ -442,6 +433,15 @@
   <li class="item">
     
 <div class="breadcrumb">
+</div>
+
+    <span><a href="/2026/02/24/%E9%87%8D%E8%BD%BD%E8%BF%90%E7%AE%97%E7%AC%A6/" title="重载运算符">重载运算符</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
 <a href="/categories/%E9%A2%98%E8%A7%A3%EF%BC%8C%E6%AF%94%E8%B5%9B/" title="In 题解，比赛">题解，比赛</a>
 </div>
 
@@ -454,38 +454,7 @@
 <div class="breadcrumb">
 </div>
 
-    <span><a href="/2026/02/24/%E9%87%8D%E8%BD%BD%E8%BF%90%E7%AE%97%E7%AC%A6/" title="重载运算符">重载运算符</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/%E7%AE%97%E6%B3%95/" title="In 算法">算法</a>
-<i class="ic i-angle-right"></i>
-<a href="/categories/%E7%AE%97%E6%B3%95/%E5%9B%BE%E8%AE%BA/" title="In 图论">图论</a>
-</div>
-
-    <span><a href="/2026/02/23/%E6%9C%80%E5%B0%8F%E7%94%9F%E6%88%90%E6%A0%91/" title="算法基础：最小生成树的“两大神功” (Prim &amp; Kruskal)">算法基础：最小生成树的“两大神功” (Prim & Kruskal)</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-</div>
-
     <span><a href="/2026/02/22/MyFirstPost/" title="终于成功了">终于成功了</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/%E9%A2%98%E8%A7%A3%EF%BC%8C%E6%AF%94%E8%B5%9B/" title="In 题解，比赛">题解，比赛</a>
-</div>
-
-    <span><a href="/2026/03/01/%E7%89%9B%E5%AE%A2%E5%91%A8%E8%B5%9B133/" title="牛客周赛133">牛客周赛133</a></span>
   </li>
 
       
@@ -508,6 +477,28 @@
 </div>
 
     <span><a href="/2026/02/27/%E7%89%9B%E5%AE%A2%E5%B0%8F%E7%99%BD%E6%9C%88%E8%B5%9B129/" title="牛客小白月赛129">牛客小白月赛129</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/%E9%A2%98%E8%A7%A3%EF%BC%8C%E6%AF%94%E8%B5%9B/" title="In 题解，比赛">题解，比赛</a>
+</div>
+
+    <span><a href="/2026/03/01/%E7%89%9B%E5%AE%A2%E5%91%A8%E8%B5%9B133/" title="牛客周赛133">牛客周赛133</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/%E7%AE%97%E6%B3%95/" title="In 算法">算法</a>
+<i class="ic i-angle-right"></i>
+<a href="/categories/%E7%AE%97%E6%B3%95/%E5%9B%BE%E8%AE%BA/" title="In 图论">图论</a>
+</div>
+
+    <span><a href="/2026/02/23/%E6%9C%80%E5%B0%8F%E7%94%9F%E6%88%90%E6%A0%91/" title="算法基础：最小生成树的“两大神功” (Prim &amp; Kruskal)">算法基础：最小生成树的“两大神功” (Prim & Kruskal)</a></span>
   </li>
 
   </ul>
@@ -538,7 +529,7 @@
     <span class="post-meta-item-icon">
       <i class="ic i-coffee"></i>
     </span>
-    <span title="Reading time total">18 mins.</span>
+    <span title="Reading time total">17 mins.</span>
   </div>
   <div class="powered-by">
     Powered by <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlv">Hexo</span> & Theme.<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2FtZWhpbWUvaGV4by10aGVtZS1zaG9rYQ==">Shoka</span>
