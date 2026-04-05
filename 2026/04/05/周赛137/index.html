@@ -1,0 +1,551 @@
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#FFF">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+
+<link rel="icon" type="image/ico" sizes="32x32" href="/images/favicon.ico">
+  <meta http-equiv="Cache-Control" content="no-transform">
+  <meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+<link rel="alternate" type="application/rss+xml" title="白百流云" href="http://example.com/rss.xml" />
+<link rel="alternate" type="application/atom+xml" title="白百流云" href="http://example.com/atom.xml" />
+<link rel="alternate" type="application/json" title="白百流云" href="http://example.com/feed.json" />
+
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Mulish:300,300italic,400,400italic,700,700italic%7CFredericka%20the%20Great:300,300italic,400,400italic,700,700italic%7CNoto%20Serif%20JP:300,300italic,400,400italic,700,700italic%7CNoto%20Serif%20SC:300,300italic,400,400italic,700,700italic%7CInconsolata:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+
+<link rel="stylesheet" href="/css/app.css?v=0.2.5">
+
+  
+  <meta name="keywords" content="C++" />
+
+
+<link rel="canonical" href="http://example.com/2026/04/05/%E5%91%A8%E8%B5%9B137/">
+
+
+
+  <title>
+周赛137 - 题解，比赛 |
+欢迎来到百解BaiJay的博客 = 白百流云 = 循此苦旅,终抵群星</title>
+<meta name="generator" content="Hexo 8.1.1"></head>
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div id="loading">
+    <div class="cat">
+      <div class="body"></div>
+      <div class="head">
+        <div class="face"></div>
+      </div>
+      <div class="foot">
+        <div class="tummy-end"></div>
+        <div class="bottom"></div>
+        <div class="legs left"></div>
+        <div class="legs right"></div>
+      </div>
+      <div class="paw">
+        <div class="hands left"></div>
+        <div class="hands right"></div>
+      </div>
+    </div>
+  </div>
+  <div id="container">
+    <header id="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="inner">
+        <div id="brand">
+          <div class="pjax">
+          
+  <h1 itemprop="name headline">周赛137
+  </h1>
+  
+<div class="meta">
+  <span class="item" title="Created: 2026-04-05 15:57:29">
+    <span class="icon">
+      <i class="ic i-calendar"></i>
+    </span>
+    <span class="text">Posted on</span>
+    <time itemprop="dateCreated datePublished" datetime="2026-04-05T15:57:29+08:00">2026-04-05</time>
+  </span>
+  <span class="item" title="Symbols count in article">
+    <span class="icon">
+      <i class="ic i-pen"></i>
+    </span>
+    <span class="text">Symbols count in article</span>
+    <span>3.5k</span>
+    <span class="text">words</span>
+  </span>
+  <span class="item" title="Reading time">
+    <span class="icon">
+      <i class="ic i-clock"></i>
+    </span>
+    <span class="text">Reading time</span>
+    <span>3 mins.</span>
+  </span>
+</div>
+
+
+          </div>
+        </div>
+        <nav id="nav">
+  <div class="inner">
+    <div class="toggle">
+      <div class="lines" aria-label="Toggle navigation bar">
+        <span class="line"></span>
+        <span class="line"></span>
+        <span class="line"></span>
+      </div>
+    </div>
+    <ul class="menu">
+      <li class="item title"><a href="/" rel="start">欢迎来到百解BaiJay的博客</a></li>
+    </ul>
+    <ul class="right">
+      <li class="item theme">
+        <i class="ic i-sun"></i>
+      </li>
+      <li class="item search">
+        <i class="ic i-search"></i>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+      </div>
+      <div id="imgs" class="pjax">
+        <ul>
+          <li class="item" data-background-image="https://s41.ax1x.com/2026/02/26/pZxLplR.png"></li>
+          <li class="item" data-background-image="https://s41.ax1x.com/2026/02/26/pZxLkTO.png"></li>
+          <li class="item" data-background-image="https://s41.ax1x.com/2026/02/25/pZxMMl9.png"></li>
+          <li class="item" data-background-image="https://s41.ax1x.com/2026/02/26/pZxLF0K.png"></li>
+          <li class="item" data-background-image="https://s41.ax1x.com/2026/02/26/pZxL961.png"></li>
+          <li class="item" data-background-image="https://s41.ax1x.com/2026/02/28/peSKE24.jpg"></li>
+        </ul>
+      </div>
+    </header>
+    <div id="waves">
+      <svg class="waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
+        <defs>
+          <path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z" />
+        </defs>
+        <g class="parallax">
+          <use xlink:href="#gentle-wave" x="48" y="0" />
+          <use xlink:href="#gentle-wave" x="48" y="3" />
+          <use xlink:href="#gentle-wave" x="48" y="5" />
+          <use xlink:href="#gentle-wave" x="48" y="7" />
+        </g>
+      </svg>
+    </div>
+    <main>
+      <div class="inner">
+        <div id="main" class="pjax">
+          
+  <div class="article wrap">
+    
+<div class="breadcrumb" itemscope itemtype="https://schema.org/BreadcrumbList">
+<i class="ic i-home"></i>
+<span><a href="/">Home</a></span><i class="ic i-angle-right"></i>
+<span  class="current" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/categories/%E9%A2%98%E8%A7%A3%EF%BC%8C%E6%AF%94%E8%B5%9B/" itemprop="item" rel="index" title="In 题解，比赛"><span itemprop="name">题解，比赛</span></a>
+<meta itemprop="position" content="1" /></span>
+</div>
+
+    <article itemscope itemtype="http://schema.org/Article" class="post block" lang="en">
+  <link itemprop="mainEntityOfPage" href="http://example.com/2026/04/05/%E5%91%A8%E8%B5%9B137/">
+
+  <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="image" content="/images/avatar.jpg">
+    <meta itemprop="name" content="BaiJay">
+    <meta itemprop="description" content="循此苦旅,终抵群星, ">
+  </span>
+
+  <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="白百流云">
+  </span>
+
+  <div class="body md" itemprop="articleBody">
+    
+
+    <h1 id="小苯的钟表显示"><a class="anchor" href="#小苯的钟表显示">#</a> 小苯的钟表显示</h1>
+<p>根据输入的秒数，分别算出小时，分钟和秒即可<br />
+ <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">void</span> <span class="title">work</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">   <span class="type">int</span> n ; cin &gt;&gt; n ; </span><br><span class="line">    <span class="type">int</span> h = n / <span class="number">3600</span> ; </span><br><span class="line">    n %= <span class="number">3600</span> ; </span><br><span class="line">    <span class="type">int</span> f = n / <span class="number">60</span> ;</span><br><span class="line">    n %= <span class="number">60</span> ; </span><br><span class="line">    cout &lt;&lt; h &lt;&lt; <span class="string">&quot; &quot;</span> &lt;&lt; f &lt;&lt; <span class="string">&quot; &quot;</span> &lt;&lt; n &lt;&lt; endl ; </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h1 id="小苯的输入法"><a class="anchor" href="#小苯的输入法">#</a> 小苯的输入法</h1>
+<p>可以通过一个双端队列来维护输入端的左侧和右侧，可以通过设定一个标志 cur 来判断现在位于左端还是右端，需要注意的是，**-** 不仅仅用于当前那一侧的删除，还可以删除另外一侧<br />
+ <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">void</span> <span class="title">work</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="type">int</span> n;</span><br><span class="line">    cin &gt;&gt; n;</span><br><span class="line">    string s;</span><br><span class="line">    cin &gt;&gt; s;</span><br><span class="line">    deque&lt;<span class="type">char</span>&gt;q ; </span><br><span class="line">    <span class="type">int</span> cur = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; n; i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span>(s[i] &gt;= <span class="string">&#x27;a&#x27;</span> &amp;&amp; s[i] &lt;= <span class="string">&#x27;z&#x27;</span>)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span>(cur == <span class="number">0</span>)q.<span class="built_in">pb</span>(s[i]) ; </span><br><span class="line">            <span class="keyword">else</span> q.<span class="built_in">push_front</span>(s[i]) ; </span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span>(s[i] == <span class="string">&#x27;!&#x27;</span>)</span><br><span class="line">        &#123;</span><br><span class="line">            cur = (cur + <span class="number">1</span>) % <span class="number">2</span> ; </span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span>(q.<span class="built_in">size</span>())</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="keyword">if</span>(cur == <span class="number">0</span>)q.<span class="built_in">pop_back</span>() ;</span><br><span class="line">                <span class="keyword">else</span> q.<span class="built_in">pop_front</span>() ; </span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span>(q.<span class="built_in">size</span>())</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">while</span>(q.<span class="built_in">size</span>())</span><br><span class="line">        &#123;</span><br><span class="line">            cout &lt;&lt; q.<span class="built_in">front</span>() ; </span><br><span class="line">            q.<span class="built_in">pop_front</span>() ; </span><br><span class="line">        &#125;</span><br><span class="line">        cout &lt;&lt; endl ; </span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">    &#123;</span><br><span class="line">        cout &lt;&lt; <span class="string">&quot;Empty&quot;</span> ; </span><br><span class="line">        cout &lt;&lt; endl ; </span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h1 id="小苯的观景路线"><a class="anchor" href="#小苯的观景路线">#</a> 小苯的观景路线</h1>
+<p>题目要求选出的观景点坐标按照升序排序，所以我们先把得到的数组进行升序排序，按照贪心的思路来说，第一个选出的景点选第一个就好，然后向后遍历，按照题意求解即可<br />
+ <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">void</span> <span class="title">work</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">   <span class="type">int</span> n ; cin &gt;&gt; n ; </span><br><span class="line">    <span class="function">vi <span class="title">a</span><span class="params">(n)</span> </span>; </span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">0</span> ; i &lt; n ; i++)cin &gt;&gt; a[i] ; </span><br><span class="line">    <span class="built_in">sort</span>(<span class="built_in">all</span>(a)) ; </span><br><span class="line">    <span class="type">int</span> mx = <span class="number">1</span> ;</span><br><span class="line">    <span class="type">int</span> cur = a[<span class="number">0</span>] ; </span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">1</span> ; i &lt; n ; i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span>(a[i] - cur &gt;= mx)</span><br><span class="line">        &#123;</span><br><span class="line">            mx++ ; </span><br><span class="line">            cur = a[i] ; </span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    cout &lt;&lt; mx &lt;&lt; endl ; </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h1 id="小苯的序列涂色"><a class="anchor" href="#小苯的序列涂色">#</a> 小苯的序列涂色</h1>
+<p>由于每次选择的区间可以重叠，所以考虑使用区间 dp 进行操作，为了简化操作，预先处理一个前缀和。</p>
+<p>这道题目 dp 的关键在于，我们选定前 i 段区间，然后维护一个最小值，再枚举前 j 段区间，所以我们的 mini 其实维护的就是 i-j 这段区间染色的代价，由于这段区间是只增不减的，所以我们的 mini 只需要找到最小值就可以了，题目允许同一位置被多次染色<br />
+ <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">void</span> <span class="title">work</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">   <span class="type">int</span> n ; cin &gt;&gt; n ;</span><br><span class="line">    <span class="function">vi <span class="title">a</span><span class="params">(n + <span class="number">1</span> , <span class="number">0</span>)</span> </span>; </span><br><span class="line">    <span class="function">vi <span class="title">pre</span><span class="params">(n + <span class="number">1</span> , <span class="number">0</span>)</span> </span>; </span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">1</span> ; i &lt;= n ; i++)cin &gt;&gt; a[i] , pre[i] = pre[i - <span class="number">1</span>] ^ a[i] ;</span><br><span class="line">    <span class="function">vi <span class="title">dp</span><span class="params">(n + <span class="number">5</span> , inf)</span> </span>;</span><br><span class="line">    dp[<span class="number">0</span>] = <span class="number">0</span> ; </span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">1</span> ; i &lt;= n ; i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="type">int</span> mini = inf ; </span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> j = <span class="number">1</span> ; j &lt;= i ; j++)</span><br><span class="line">        &#123;</span><br><span class="line">            mini = <span class="built_in">min</span>(mini , (pre[i] ^ pre[j - <span class="number">1</span>]));</span><br><span class="line">            dp[i] = <span class="built_in">min</span>(dp[i] , dp[j - <span class="number">1</span>] + mini) ;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    cout &lt;&lt; <span class="built_in">min</span>(dp[n] , pre[n]) &lt;&lt; endl ; </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h1 id="小苯的凝聚区间"><a class="anchor" href="#小苯的凝聚区间">#</a> 小苯的凝聚区间</h1>
+<p>注意到答案区间的特点必然是最大值和最小值分布在区间的两端，如果不满足这个条件，区间的长度可以缩短，使凝聚力更大，然后我们按照两种情况对凝聚力公式进行优化：</p>
+<p>1、最大值位于左侧，最小值位于右侧</p>
+<p>此时公式变形为 (M - r) - (m - l) , 也就是一个元素减去自己的坐标</p>
+<p>2、最大值位于右侧，最小值位于左侧</p>
+<p>此时公式变形为 (M + l) - (m + r) , 也就是一个元素加上自己的坐标</p>
+<p>于是我们可以想到，遍历整个数组，把我们当前所在的元素当作区间的右端点，然后维护第一种情况的最大值，维护第二种情况的最小值，计算差值并统计答案<br />
+ <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">void</span> <span class="title">work</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">   <span class="type">int</span> n ; cin &gt;&gt; n ;</span><br><span class="line">    <span class="function">vi <span class="title">mp</span><span class="params">(n)</span> </span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">0</span> ; i &lt; n ; i++)cin &gt;&gt; mp[i] ;</span><br><span class="line">    <span class="type">int</span> ans = <span class="number">0</span> ; </span><br><span class="line">    <span class="type">int</span> mx = mp[<span class="number">0</span>] + <span class="number">0</span> ; </span><br><span class="line">    <span class="type">int</span> mi = mp[<span class="number">0</span>] - <span class="number">0</span> ; </span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">1</span> ; i &lt; n ; i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="type">int</span> b1 = mp[i] + i ; </span><br><span class="line">        <span class="type">int</span> c1 = mp[i] - i ; </span><br><span class="line">        ans = <span class="built_in">max</span>(&#123;ans , c1 - mi , mx - b1&#125;) ; </span><br><span class="line">        mi = <span class="built_in">min</span>(mi , c1) ; </span><br><span class="line">        mx = <span class="built_in">max</span>(mx , b1) ; </span><br><span class="line">    &#125;</span><br><span class="line">    cout &lt;&lt; ans &lt;&lt; endl ; </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h1 id="小苯的糖果盒"><a class="anchor" href="#小苯的糖果盒">#</a> 小苯的糖果盒</h1>
+<p>前提：这道题目应用了贪心的一种较为困难的情况，基础模型是将 a 数组变为 b 数组，每次可以选择 a 数组中的两个元素，一个元素 + 1，一个元素 - 1，成本是这两个元素的距离，求完成的所消耗的最小代价，解决这类问题，我们需要维护 a 数组和 b 数组的前缀和，每次让 ans 加上 a 和 b 前 i 段前缀和的绝对值。</p>
+<p>回到本题：显然这道题目没有明显的 b 数组，但是我们可以枚举 b 数组的情况，然后按照前提所提到的公式计算总成本，使得代价最小，考虑到使用 dp，因为我们只考虑相邻亮相的关系，所以使用滚动 dp 进行优化，对于一个 dp [i][j]，i 表示的是当前位置所放置的完全平方数的开根，j 表示的是前 i 个元素的前缀和。</p>
+<p>从 i = 1 枚举到 i = n , 明显的，我们分别枚举前面数字的前缀和，再枚举前面所填的数字，这里进行了一次优化，因为考虑到题目要求所有盒子的糖果数量构成一个非递减序列，所以我们所填的数字 (这里你可以认为我们所填的数字和前面所填的数字合并进行枚举) 只能大于等于前面所填的数字，而 mini 就负责维护前面所填数字情况的最小代价，之后就是将过去的代价转移到现在的代价，然后 dp 滚动即可。</p>
+<p>最后，我们枚举最后一个所填数字的取值就可以了。<br />
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">void</span> <span class="title">work</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="type">int</span> n;</span><br><span class="line">    cin &gt;&gt; n;</span><br><span class="line">    <span class="function">vi <span class="title">a</span><span class="params">(n + <span class="number">1</span>, <span class="number">0</span>)</span></span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">1</span>; i &lt;= n; i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="type">int</span> x;</span><br><span class="line">        cin &gt;&gt; x;</span><br><span class="line">        a[i] = a[i - <span class="number">1</span>] + x;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="type">int</span> sum = a[n] ;</span><br><span class="line">    <span class="function">vii <span class="title">dp</span><span class="params">(<span class="number">101</span> , vi(sum + <span class="number">10</span> , inf))</span> </span>;</span><br><span class="line">    dp[<span class="number">0</span>][<span class="number">0</span>] = <span class="number">0</span> ; </span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">1</span> ; i &lt;= n ; i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="function">vii <span class="title">ndp</span><span class="params">(<span class="number">101</span> , vi(sum + <span class="number">10</span> , inf))</span> </span>; </span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> j = <span class="number">0</span> ; j &lt;= sum ; j++)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="type">int</span> mini = inf ;</span><br><span class="line">            <span class="keyword">for</span>(<span class="type">int</span> k = <span class="number">0</span> ; k &lt;= <span class="number">100</span> ; k++)</span><br><span class="line">            &#123;</span><br><span class="line">                mini = <span class="built_in">min</span>(mini , dp[k][j]) ; </span><br><span class="line">                <span class="keyword">if</span>(k * k + j &gt; sum)<span class="keyword">continue</span> ;</span><br><span class="line">                <span class="type">int</span> c = <span class="built_in">abs</span>(j + k * k - a[i]) ; </span><br><span class="line">                ndp[k][j + k * k] = <span class="built_in">min</span>(ndp[k][j + k * k] , c + mini) ; </span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        dp.<span class="built_in">swap</span>(ndp);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="type">int</span> ans = inf ;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">0</span> ; i &lt;= <span class="number">100</span> ; i++)</span><br><span class="line">    ans = <span class="built_in">min</span>(ans , dp[i][sum]) ;</span><br><span class="line">    <span class="keyword">if</span>(ans &gt;= inf)cout &lt;&lt; <span class="number">-1</span> &lt;&lt; endl ; </span><br><span class="line">    <span class="keyword">else</span> cout &lt;&lt; ans &lt;&lt; endl ; </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+
+      <div class="tags">
+          <a href="/tags/C/" rel="tag"><i class="ic i-tag"></i> C++</a>
+      </div>
+  </div>
+
+   <footer>
+
+    <div class="meta">
+  <span class="item">
+    <span class="icon">
+      <i class="ic i-calendar-check"></i>
+    </span>
+    <span class="text">Edited on</span>
+    <time title="Modified: 2026-04-05 16:46:18" itemprop="dateModified" datetime="2026-04-05T16:46:18+08:00">2026-04-05</time>
+  </span>
+</div>
+
+      
+<div class="reward">
+  <button><i class="ic i-heartbeat"></i> Donate</button>
+  <p>Give me a cup of [coffee]~(￣▽￣)~*</p>
+  <div id="qr">
+      
+      <div>
+        <img data-src="/images/wechatpay.png" alt="BaiJay WeChat Pay">
+        <p>WeChat Pay</p>
+      </div>
+      
+      <div>
+        <img data-src="/images/alipay.png" alt="BaiJay Alipay">
+        <p>Alipay</p>
+      </div>
+      
+      <div>
+        <img data-src="/images/paypal.png" alt="BaiJay PayPal">
+        <p>PayPal</p>
+      </div>
+  </div>
+</div>
+
+      
+
+<div id="copyright">
+<ul>
+  <li class="author">
+    <strong>Post author:  </strong>BaiJay <i class="ic i-at"><em>@</em></i>白百流云
+  </li>
+  <li class="link">
+    <strong>Post link: </strong>
+    <a href="http://example.com/2026/04/05/%E5%91%A8%E8%B5%9B137/" title="周赛137">http://example.com/2026/04/05/周赛137/</a>
+  </li>
+  <li class="license">
+    <strong>Copyright Notice:  </strong>All articles in this blog are licensed under <span class="exturl" data-url="aHR0cHM6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL2xpY2Vuc2VzL2J5LW5jLXNhLzQuMC9kZWVkLnpo"><i class="ic i-creative-commons"><em>(CC)</em></i>BY-NC-SA</span> unless stating additionally.
+  </li>
+</ul>
+</div>
+
+  </footer>
+
+</article>
+
+  </div>
+  
+
+<div class="post-nav">
+    <div class="item left">
+      
+
+  <a href="/2026/03/17/%E5%BC%BA%E8%BF%9E%E9%80%9A%E5%88%86%E9%87%8F%E5%92%8C%E7%BC%A9%E7%82%B9/" itemprop="url" rel="prev" data-background-image="https:&#x2F;&#x2F;s41.ax1x.com&#x2F;2026&#x2F;02&#x2F;25&#x2F;pZxMEwV.png" title="强连通分量和缩点">
+  <span class="type">Previous Post</span>
+  <span class="category"><i class="ic i-flag"></i> </span>
+  <h3>强连通分量和缩点</h3>
+  </a>
+
+    </div>
+    <div class="item right">
+    </div>
+</div>
+
+  
+  <div class="wrap" id="comments"></div>
+
+
+        </div>
+        <div id="sidebar">
+          
+
+<div class="inner">
+
+  <div class="panels">
+    <div class="inner">
+      <div class="contents panel pjax" data-title="Contents">
+          <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%B0%8F%E8%8B%AF%E7%9A%84%E9%92%9F%E8%A1%A8%E6%98%BE%E7%A4%BA"><span class="toc-number">1.</span> <span class="toc-text"> 小苯的钟表显示</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%B0%8F%E8%8B%AF%E7%9A%84%E8%BE%93%E5%85%A5%E6%B3%95"><span class="toc-number">2.</span> <span class="toc-text"> 小苯的输入法</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%B0%8F%E8%8B%AF%E7%9A%84%E8%A7%82%E6%99%AF%E8%B7%AF%E7%BA%BF"><span class="toc-number">3.</span> <span class="toc-text"> 小苯的观景路线</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%B0%8F%E8%8B%AF%E7%9A%84%E5%BA%8F%E5%88%97%E6%B6%82%E8%89%B2"><span class="toc-number">4.</span> <span class="toc-text"> 小苯的序列涂色</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%B0%8F%E8%8B%AF%E7%9A%84%E5%87%9D%E8%81%9A%E5%8C%BA%E9%97%B4"><span class="toc-number">5.</span> <span class="toc-text"> 小苯的凝聚区间</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%B0%8F%E8%8B%AF%E7%9A%84%E7%B3%96%E6%9E%9C%E7%9B%92"><span class="toc-number">6.</span> <span class="toc-text"> 小苯的糖果盒</span></a></li></ol>
+      </div>
+      <div class="related panel pjax" data-title="Related">
+        <ul>
+          <li><a href="/2026/02/27/%E7%89%9B%E5%AE%A2%E5%B0%8F%E7%99%BD%E6%9C%88%E8%B5%9B129/" rel="bookmark" title="牛客小白月赛129">牛客小白月赛129</a></li><li><a href="/2026/03/01/%E7%89%9B%E5%AE%A2%E5%91%A8%E8%B5%9B133/" rel="bookmark" title="牛客周赛133">牛客周赛133</a></li><li class="active"><a href="/2026/04/05/%E5%91%A8%E8%B5%9B137/" rel="bookmark" title="周赛137">周赛137</a></li>
+        </ul>
+      </div>
+      <div class="overview panel" data-title="Overview">
+        <div class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <img class="image" itemprop="image" alt="BaiJay"
+      data-src="/images/avatar.jpg">
+  <p class="name" itemprop="name">BaiJay</p>
+  <div class="description" itemprop="description"></div>
+</div>
+
+<nav class="state">
+    <div class="item posts">
+      <a href="/archives/">
+        <span class="count">8</span>
+        <span class="name">posts</span>
+      </a>
+    </div>
+    <div class="item categories">
+      <a href="/categories/">
+        <span class="count">5</span>
+        <span class="name">categories</span>
+      </a>
+    </div>
+    <div class="item tags">
+      <a href="/tags/">
+        <span class="count">5</span>
+        <span class="name">tags</span>
+      </a>
+    </div>
+</nav>
+
+<div class="social">
+</div>
+
+<ul class="menu">
+  
+    
+  <li class="item">
+    <a href="/" rel="section"><i class="ic i-home"></i>Home</a>
+  </li>
+
+    
+  <li class="item">
+    <a href="/about/" rel="section"><i class="ic i-user"></i>About</a>
+  </li>
+
+        
+  <li class="item dropdown">
+      <a href="javascript:void(0);"><i class="ic i-feather"></i>Posts</a>
+    <ul class="submenu">
+
+        
+  <li class="item">
+    <a href="/archives/" rel="section"><i class="ic i-list-alt"></i>Archives</a>
+  </li>
+
+        
+  <li class="item">
+    <a href="/categories/" rel="section"><i class="ic i-th"></i>Categories</a>
+  </li>
+
+        
+  <li class="item">
+    <a href="/tags/" rel="section"><i class="ic i-tags"></i>Tags</a>
+  </li>
+
+  </ul>
+    
+  <li class="item">
+    <a href="/friends/" rel="section"><i class="ic i-heart"></i>friends</a>
+  </li>
+
+
+</ul>
+
+      </div>
+    </div>
+  </div>
+
+  <ul id="quick">
+    <li class="prev pjax">
+    </li>
+    <li class="up"><i class="ic i-arrow-up"></i></li>
+    <li class="down"><i class="ic i-arrow-down"></i></li>
+    <li class="next pjax">
+    </li>
+    <li class="percent"></li>
+  </ul>
+</div>
+
+
+        </div>
+        <div class="dimmer"></div>
+      </div>
+    </main>
+    <footer id="footer">
+      <div class="inner">
+        <div class="widgets">
+          
+<div class="rpost pjax">
+  <h2>Random Posts</h2>
+  <ul>
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/%E9%A2%98%E8%A7%A3%EF%BC%8C%E6%AF%94%E8%B5%9B/" title="In 题解，比赛">题解，比赛</a>
+</div>
+
+    <span><a href="/2026/04/05/%E5%91%A8%E8%B5%9B137/" title="周赛137">周赛137</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/%E9%A2%98%E8%A7%A3%EF%BC%8C%E6%AF%94%E8%B5%9B/" title="In 题解，比赛">题解，比赛</a>
+</div>
+
+    <span><a href="/2026/03/01/%E7%89%9B%E5%AE%A2%E5%91%A8%E8%B5%9B133/" title="牛客周赛133">牛客周赛133</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
+
+    <span><a href="/2026/02/24/%E9%87%8D%E8%BD%BD%E8%BF%90%E7%AE%97%E7%AC%A6/" title="重载运算符">重载运算符</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
+
+    <span><a href="/2026/02/22/MyFirstPost/" title="终于成功了">终于成功了</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/%E7%AE%97%E6%B3%95/" title="In 算法">算法</a>
+<i class="ic i-angle-right"></i>
+<a href="/categories/%E7%AE%97%E6%B3%95/%E5%9B%BE%E8%AE%BA/" title="In 图论">图论</a>
+</div>
+
+    <span><a href="/2026/02/23/%E6%9C%80%E5%B0%8F%E7%94%9F%E6%88%90%E6%A0%91/" title="算法基础：最小生成树的“两大神功” (Prim &amp; Kruskal)">算法基础：最小生成树的“两大神功” (Prim & Kruskal)</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/%E9%A2%98%E8%A7%A3%EF%BC%8C%E6%AF%94%E8%B5%9B/" title="In 题解，比赛">题解，比赛</a>
+</div>
+
+    <span><a href="/2026/02/27/%E7%89%9B%E5%AE%A2%E5%B0%8F%E7%99%BD%E6%9C%88%E8%B5%9B129/" title="牛客小白月赛129">牛客小白月赛129</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
+
+    <span><a href="/2026/03/17/%E5%BC%BA%E8%BF%9E%E9%80%9A%E5%88%86%E9%87%8F%E5%92%8C%E7%BC%A9%E7%82%B9/" title="强连通分量和缩点">强连通分量和缩点</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/%E9%A2%98%E8%A7%A3/" title="In 题解">题解</a>
+<i class="ic i-angle-right"></i>
+<a href="/categories/%E9%A2%98%E8%A7%A3/%E4%B8%AA%E9%A2%98/" title="In 个题">个题</a>
+</div>
+
+    <span><a href="/2026/02/24/%E5%AD%99%E6%82%9F%E7%A9%BA%E6%95%91%E5%B8%88%E5%82%85/" title="孙悟空救师傅">孙悟空救师傅</a></span>
+  </li>
+
+  </ul>
+</div>
+<div>
+  <h2>Recent Comments</h2>
+  <ul class="leancloud-recent-comment"></ul>
+</div>
+
+        </div>
+        <div class="status">
+  <div class="copyright">
+    
+    &copy; 2010 – 
+    <span itemprop="copyrightYear">2026</span>
+    <span class="with-love">
+      <i class="ic i-sakura rotate"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">BaiJay @ 欢迎来到百解BaiJay的博客</span>
+  </div>
+  <div class="count">
+    <span class="post-meta-item-icon">
+      <i class="ic i-chart-area"></i>
+    </span>
+    <span title="Symbols count total">19k words</span>
+
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="ic i-coffee"></i>
+    </span>
+    <span title="Reading time total">18 mins.</span>
+  </div>
+  <div class="powered-by">
+    Powered by <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlv">Hexo</span> & Theme.<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2FtZWhpbWUvaGV4by10aGVtZS1zaG9rYQ==">Shoka</span>
+  </div>
+</div>
+
+      </div>
+    </footer>
+  </div>
+<script data-config type="text/javascript">
+  var LOCAL = {
+    path: '2026/04/05/周赛137/',
+    favicon: {
+      show: "（●´3｀●）Goooood",
+      hide: "(´Д｀)Booooom"
+    },
+    search : {
+      placeholder: "Search for Posts",
+      empty: "We didn't find any results for the search: ${query}",
+      stats: "${hits} results found in ${time} ms"
+    },
+    valine: true,fancybox: true,
+    copyright: 'Copied to clipboard successfully! <br> All articles in this blog are licensed under <i class="ic i-creative-commons"></i>BY-NC-SA.',
+    ignores : [
+      function(uri) {
+        return uri.includes('#');
+      },
+      function(uri) {
+        return new RegExp(LOCAL.path+"$").test(uri);
+      }
+    ]
+  };
+</script>
+
+
+<script src="//cdn.jsdelivr.net/combine/npm/pace-js@1.0.2/pace.min.js,npm/pjax@0.2.8/pjax.min.js,npm/whatwg-fetch@3.4.0/dist/fetch.umd.min.js,npm/animejs@3.2.0/lib/anime.min.js,npm/algoliasearch@4/dist/algoliasearch-lite.umd.js,npm/instantsearch.js@4/dist/instantsearch.production.min.js,npm/lozad@1/dist/lozad.min.js,npm/quicklink@2/dist/quicklink.umd.js"></script>
+
+<script src="/js/app.js?v=0.2.5"></script>
+
+
+
+
+</body>
+</html>
